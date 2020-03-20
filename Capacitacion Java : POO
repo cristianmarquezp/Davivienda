@@ -1,0 +1,92 @@
+package poo;
+
+public class Coche {
+	private int ruedas;
+	private int largo;
+	private	int ancho;
+	private	int motor;
+	private	int peso_plataforma;
+	private String color;
+	private int peso_total;
+	private boolean asientos_cuero, climatizador;
+	public Coche() {
+		this.ruedas = 4;
+		this.largo = 123;
+		this.ancho = 123;
+		this.motor = 1600;
+		this.peso_plataforma= 2000;
+	}
+	
+	public String getDatos() {
+		return "El largo del coche es " + this.largo + " La plataforma tiene: " + ruedas + " ruedas" + " Mide :" + ancho + " metros de ancho" ; 
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public String getColor( ) {
+		return this.color;
+	}
+	
+	public void setAsientos(String asientos) {
+		if (asientos == "si") {
+			this.asientos_cuero = true;
+		}else {
+			this.asientos_cuero = false;
+		}
+	}
+	public String getAsientos() {
+		if (asientos_cuero== true) {
+			return "El coche SI tiene asientos de cuero";
+		}else {
+			return "El coche NO tiene asientos de cuero";
+		}
+	}
+	
+	public void setClimatizador(String climatizador) {
+		if (climatizador == "si") {
+			this.climatizador = true;
+		}else {
+			this.climatizador = false;
+		}
+	}
+	public String getClimatizador() {
+		if (climatizador == true) {
+			 return "El coche tiene climatizador" ;
+			 
+		}else {
+			return "El coche NO tiene climatizador";
+		}
+	}
+	
+	//Getter y setter a la vez
+	
+	public String getPesoCoche() {
+		int peso_carroceria = 500;
+		
+		peso_total = peso_plataforma + peso_carroceria;
+		if (asientos_cuero) {
+			peso_total = peso_total + 50;
+			
+		}if (climatizador) {
+			peso_total = peso_total+20;
+			
+		}	
+		
+		return "El peso del coche es " + peso_total;
+				
+	}
+	
+	public int precio_coche() {
+		int precio_final = 10000;
+		if (asientos_cuero) {
+			precio_final += 2000;
+		}
+		if (climatizador) {
+			precio_final += 1500;
+		}
+		
+		return precio_final;
+	}
+	
+	
+}
